@@ -1,0 +1,384 @@
+﻿@using BE
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<BECertificado> listCertificado = ViewBag.ListCertificados as List<BECertificado>;
+    List<BEEstado> listEstado = ViewBag.ListEstados as List<BEEstado>;
+    List<BETipo> listTipo = ViewBag.ListTipos as List<BETipo>;
+    List<BETaller> listTaller = ViewBag.ListTalleres as List<BETaller>;
+    List<int> filtroEstado = ViewBag.filtroEstado;
+    List<int> filtroTipos = ViewBag.filtroTipos;
+    string ruta = ViewBag.ruta as string;
+}
+
+<div class="row">
+    <div class="col-md-12 col-lg-3 col-xl-2">
+            <div class="card shadow mb-5">
+                <div class="card-header">
+                    <h5 class="card-header-text">Filtros</h5>
+                </div>
+
+
+                <div class="accordion">
+                    <div id="accordion" role="tablist" aria-multiselectable="true">
+                        @using (Html.BeginForm("EstablecerFiltrosGeneral", "Certificados", FormMethod.Get))
+                        {
+                            <div class="card m-b-0 border-top">
+                                <div class="card-body text-dark" role="tab"
+                                     id="headingOne">
+                                    <h6 class="mb-0">
+                                        <a class="accordion-msg waves-effect waves-dark d-flex justify-content-between"
+                                           data-toggle="collapse"
+                                           data-parent="#accordion" href="#collapseOne"
+                                           aria-expanded="true"
+                                           aria-controls="collapseOne">
+                                            Estado <i class="fas fa-caret-down"></i>
+                                        </a>
+                                    </h6>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse show"
+                                     role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="card-body widget-content" style="text-align:left">
+
+                                        @foreach (var estado in listEstado)
+                                        {
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="@estado.id_estado" name="estados" id="@estado.nombre_estado"
+                                                       @(filtroEstado.Contains(estado.id_estado) ? "checked" : "" ) />
+                                                <label class="form-check-label mt-1" for="@estado.nombre_estado" title="@estado.nombre_estado">
+                                                    @estado.nombre_estado
+                                                </label>
+                                            </div>
+                                            <hr class="sidebar-divider d-none d-md-block">
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card m-b-0 border-top">
+                                <div class="card-body" role="tab"
+                                     id="headingOne">
+                                    <h6 class="mb-0">
+                                        <a class="accordion-msg waves-effect waves-dark d-flex justify-content-between"
+                                           data-toggle="collapse"
+                                           data-parent="#accordion" href="#collapseTwo"
+                                           aria-expanded="true"
+                                           aria-controls="collapseOne">
+                                            Tipo <i class="fas fa-caret-down"></i>
+                                        </a>
+                                    </h6>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse show"
+                                     role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="card-body widget-content">
+
+                                        @if (ViewBag.esAdmin != false)
+                                        {
+                                            foreach (var tipo in listTipo)
+                                            {
+                                                <div class="form-check" style="text-align:left">
+                                                    <input class="form-check-input" type="checkbox" value="@tipo.id_tipo" name="tipos" id="@tipo.nombreTipo"
+                                                           @(filtroTipos.Contains(tipo.id_tipo) ? "checked" : "") />
+                                                    <label class="form-check-label mt-1 texto-ellipsis" for="@tipo.nombreTipo" title="@tipo.nombreTipo">
+                                                        @tipo.nombreTipo
+                                                    </label>
+                                                </div>
+                                                <hr class="sidebar-divider d-none d-md-block">
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card m-b-0 border-top">
+                                <div class="card-header" role="tab"
+                                     id="headingOne" style="text-align: center;">
+                                    <button type="submit" class="btn btn-sm btn-primary col-auto m-auto">
+                                        Filtrar <i class="fas fa-filter"></i>
+                                    </button>
+                                </div>
+
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <div class="col-md-12 col-lg-9 col-xl-10">
+
+        <!-- Basic table card start -->
+        <div class="card shadow mb-5">
+            <div class="card-header">
+
+                <h5>Listado General de Certificados</h5>
+                <hr />
+                <button type="button" class="btn btn-sm btn-outline-success col-auto mb-3" data-toggle="modal" data-target="#exampleModal" style="float: right;">
+                    Registrar Nueva Carga
+                </button>
+                <a href="@Url.Action("GenerarReporteGeneral", "Certificados")" class="btn btn-sm btn-outline-success mb-3">
+                    Generar Reporte Excel <i class="fas fa-file-excel fa-lg"></i>
+                </a>
+
+            </div>
+
+            <div class="card-body">
+                @*@if (TempData["mensaje"] != null)
+                {
+                    <div class="alert @TempData["tipoAlerta"]" role="alert">
+                        @TempData["mensaje"]
+                    </div>
+                }*@
+                <div class="table-responsive">
+                    <table class="table table-xs table-hover" id="dataTableTickets" cellspacing="0">
+                        <thead class="table-dark">
+                            <tr>
+                                <th style="text-align: center;">ID</th>
+                                <th style="text-align: center;">Apellidos</th>
+                                <th style="text-align: center;">Nombres</th>
+                                <th style="text-align: center;">Correo</th>
+                                <th style="text-align: center;">Certificado</th>
+                                <th style="text-align: center;">Estado</th>
+                                <th style="text-align: center;">Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var certificado in listCertificado)
+                            {
+                                <tr>
+                                    <td class="td-sistema" style="text-align: left;">
+                                        @certificado.id
+                                    </td>
+                                    <td class="td-sistema" style="text-align: left;">
+                                        @certificado.nombres
+                                    </td>
+                                    <td class="td-sistema" style="text-align: left;">
+                                        @certificado.apellidos
+                                    </td>
+                                    <td class="td-sistema" style="text-align: left;">
+                                        @certificado.correo
+                                    </td>
+                                    @foreach (var itemTipo in listTipo)
+                                    {
+                                        if (itemTipo.id_tipo == certificado.idTipo)
+                                        {
+                                            <td class="td-sistema" style="text-align: left;">
+                                                @itemTipo.nombreTipo
+                                            </td>
+                                        }
+                                    }
+                                    @foreach (var itemEstados in listEstado)
+                                    {
+                                        if (itemEstados.id_estado == certificado.estadoCertificado)
+                                        {
+                                            <td class="td-sistema" style="text-align: left;">
+                                                @itemEstados.nombre_estado
+                                            </td>
+                                        }
+                                    }
+                                   
+                                <td class="td-sistema" style="text-align: left;">
+
+                                    <button class='btn btn-danger btn-sm' type='button' onclick="Eliminar(@certificado.id)">
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </button>
+                                    <a target="_blank" href="@Url.Content(ruta+certificado.codigo+".pdf")">
+                                        <button class='btn btn-info btn-sm' type='button'>
+                                            <i class="fa fa-file" aria-hidden="true"></i>
+                                        </button>
+                                    </a>
+
+                                </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Nuevo Registro Masivo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @using (Html.BeginForm("Index", "Certificados", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="control-label">Ingrese la Plantilla Excel</label>
+                        <div class="custom-file">
+                            <input type="file" id="plantillaExcel" name="plantillaExcel" class="custom-file-input" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+                            <label id="lblArchivo" class="custom-file-label" for="fuSubirExcel"></label>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="form-group">
+                        <label class="col-form-label">Tipo de Certificado</label>
+                        <select class="custom-select my-1 mr-sm-2" name="tipo">
+                            @foreach (var tipo in listTipo)
+                            {
+                                <option value="@tipo.id_tipo">@tipo.nombreTipo</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Registrar</button>
+                </div>
+            }
+
+        </div>
+
+    </div>
+</div>
+
+
+@section Scripts
+{
+    <script type="text/javascript">
+            var tabla_persona;
+             $(document).ready( function () {
+                 tabla_persona = $('#dataTableTickets').DataTable({
+                     "order": [[0, "desc"]]
+                 });
+             });
+
+        function comprobar() {
+            checkBox = document.getElementById('customControlInline');
+            if (checkBox.checked) {
+                document.getElementById('fechafin').style.display = ""
+                document.getElementById('lblTiempo').innerHTML = 'Dias de Duración';
+            } else {
+                document.getElementById('fechafin').style.display = "none";
+                document.getElementById('lblTiempo').innerHTML = 'Horas de Duración';
+                document.getElementById('fechafin').value = null;
+            }
+        }
+
+            $("#plantillaExcel").on('change', function () {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+            })
+
+            function Guardar() {
+
+            var formData = new FormData();
+
+            var file = document.getElementById("plantillaExcel").files[0];
+            formData.append("plantillaExcel", file);
+
+            $.ajax({
+                type: 'POST',
+                url: "@Url.Action("GuardarDiplomas", "Diplomas")",
+                processData: false,
+                contentType: false,
+                data: formData,
+                        success:function(data){
+                            if (data.resultado) {
+                                location.reload();
+
+                            } else {
+                                alert("No se pudo guardar los cambios");
+                            }
+                        }
+
+            });
+
+            }
+
+            function Eliminar($id) {
+            if ($id != 0) {
+                Swal.fire({
+                    title: '¿Estás seguro de eliminar este certificado?',
+                    text: "¡No podrás revertir esto!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, eliminarlo',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+
+                        jQuery.ajax({
+                            url: "@Url.Action("EliminarCertificado", "Certificados")" + "?id=" + $id,
+                            type: "GET",
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+                            success: function (data) {
+
+                                if (data.resultado) {
+                                    location.reload();
+                                }
+                            }
+                        });
+
+                    }
+                })
+            } else {
+            }
+
+            }
+
+            function Visualizar($idcertificado) {
+            if ($idcertificado != 0) {
+               window.open('@Url.Action("DiplomaPrint", "Diplomas")' + "?idcertificado=" + $idcertificado);
+            }
+
+            }
+
+            var strValue = "@((string)TempData["mensaje"])";
+            if (strValue == "Taller registrado correctamente.") {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Listo',
+                    text: 'Taller registrado correctamente.'
+                })
+            }
+            if (strValue == "Error: No se registró el taller.") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Error al registrar el Taller.'
+                })
+            }
+            if (strValue == "Certificado eliminado correctamente.") {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Listo',
+                        text: 'Certificado eliminado correctamente.'
+                    })
+            }
+            if (strValue == "Error: No se eliminado el certificado.") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Error al eliminar el Certificado.'
+                })
+        }
+        if (strValue == "Registro masivo de Diplomas realizado correctamente") {
+            Swal.fire({
+                icon: 'success',
+                title: 'Listo',
+                text: 'Carga masiva realizada correctamente.'
+            })
+        }
+        if (strValue == "Error") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Error al realizar la carga masiva.'
+            })
+        }
+    </script>
+}
+

@@ -1,0 +1,54 @@
+D:\git- sls\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\BL.dll
+D:\git- sls\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\BL.pdb
+D:\git- sls\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\BE.dll
+D:\git- sls\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\DA.dll
+D:\git- sls\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\BE.pdb
+D:\git- sls\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\DA.pdb
+D:\git- sls\Sistema de Certificados\Sistema_de_Certificados\BL\obj\Debug\BL.csproj.AssemblyReference.cache
+D:\git- sls\Sistema de Certificados\Sistema_de_Certificados\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
+D:\git- sls\Sistema de Certificados\Sistema_de_Certificados\BL\obj\Debug\BL.csproj.CopyComplete
+D:\git- sls\Sistema de Certificados\Sistema_de_Certificados\BL\obj\Debug\BL.dll
+D:\git- sls\Sistema de Certificados\Sistema_de_Certificados\BL\obj\Debug\BL.pdb
+D:\git- sls\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\DocumentFormat.OpenXml.dll
+D:\git- sls\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\SpreadsheetLight.dll
+D:\git- sls\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\System.Drawing.Common.dll
+D:\git- sls\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\System.IO.Packaging.dll
+D:\git- sls\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\DocumentFormat.OpenXml.xml
+D:\git- sls\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\SpreadsheetLight.xml
+D:\git- sls\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\System.IO.Packaging.xml
+D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\BL.dll
+D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\BL.pdb
+D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\BE.dll
+D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\DA.dll
+D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\DocumentFormat.OpenXml.dll
+D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\SpreadsheetLight.dll
+D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\System.Drawing.Common.dll
+D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\System.IO.Packaging.dll
+D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\BE.pdb
+D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\DA.pdb
+D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\DocumentFormat.OpenXml.xml
+D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\SpreadsheetLight.xml
+D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\System.IO.Packaging.xml
+D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\BL\obj\Debug\BL.csproj.AssemblyReference.cache
+D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
+D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\BL\obj\Debug\BL.csproj.CopyComplete
+D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\BL\obj\Debug\BL.dll
+D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\BL\obj\Debug\BL.pdb
+D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\BL.dll
+D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\BL.pdb
+D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\BE.dll
+D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\DA.dll
+D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\DocumentFormat.OpenXml.dll
+D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\SpreadsheetLight.dll
+D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\System.Drawing.Common.dll
+D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\System.IO.Packaging.dll
+D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\BE.pdb
+D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\DA.pdb
+D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\DocumentFormat.OpenXml.xml
+D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\SpreadsheetLight.xml
+D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\BL\bin\Debug\System.IO.Packaging.xml
+D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\BL\obj\Debug\BL.csproj.AssemblyReference.cache
+D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
+D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\BL\obj\Debug\BL.csproj.CopyComplete
+D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\BL\obj\Debug\BL.dll
+D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\BL\obj\Debug\BL.pdb

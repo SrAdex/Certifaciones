@@ -1,0 +1,27 @@
+D:\git- sls\Sistema de Certificados\Sistema_de_Certificados\DA\bin\Debug\DA.dll
+D:\git- sls\Sistema de Certificados\Sistema_de_Certificados\DA\bin\Debug\DA.pdb
+D:\git- sls\Sistema de Certificados\Sistema_de_Certificados\DA\bin\Debug\BE.dll
+D:\git- sls\Sistema de Certificados\Sistema_de_Certificados\DA\bin\Debug\BE.pdb
+D:\git- sls\Sistema de Certificados\Sistema_de_Certificados\DA\obj\Debug\DA.csproj.AssemblyReference.cache
+D:\git- sls\Sistema de Certificados\Sistema_de_Certificados\DA\obj\Debug\DA.csproj.CoreCompileInputs.cache
+D:\git- sls\Sistema de Certificados\Sistema_de_Certificados\DA\obj\Debug\DA.csproj.CopyComplete
+D:\git- sls\Sistema de Certificados\Sistema_de_Certificados\DA\obj\Debug\DA.dll
+D:\git- sls\Sistema de Certificados\Sistema_de_Certificados\DA\obj\Debug\DA.pdb
+D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\DA\obj\Debug\DA.csproj.AssemblyReference.cache
+D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\DA\obj\Debug\DA.csproj.CoreCompileInputs.cache
+D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\DA\obj\Debug\DA.dll
+D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\DA\obj\Debug\DA.pdb
+D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\DA\bin\Debug\DA.dll
+D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\DA\bin\Debug\DA.pdb
+D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\DA\bin\Debug\BE.dll
+D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\DA\bin\Debug\BE.pdb
+D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\DA\obj\Debug\DA.csproj.CopyComplete
+D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\DA\bin\Debug\DA.dll
+D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\DA\bin\Debug\DA.pdb
+D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\DA\bin\Debug\BE.dll
+D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\DA\bin\Debug\BE.pdb
+D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\DA\obj\Debug\DA.csproj.AssemblyReference.cache
+D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\DA\obj\Debug\DA.csproj.CoreCompileInputs.cache
+D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\DA\obj\Debug\DA.csproj.CopyComplete
+D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\DA\obj\Debug\DA.dll
+D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\DA\obj\Debug\DA.pdb
