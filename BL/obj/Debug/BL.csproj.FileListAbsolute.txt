@@ -52,3 +52,21 @@ D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certifica
 D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\BL\obj\Debug\BL.csproj.CopyComplete
 D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\BL\obj\Debug\BL.dll
 D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\BL\obj\Debug\BL.pdb
+C:\ADEX\SistemaCertificado\BL\bin\Debug\BL.dll
+C:\ADEX\SistemaCertificado\BL\bin\Debug\BL.pdb
+C:\ADEX\SistemaCertificado\BL\bin\Debug\BE.dll
+C:\ADEX\SistemaCertificado\BL\bin\Debug\DA.dll
+C:\ADEX\SistemaCertificado\BL\bin\Debug\DocumentFormat.OpenXml.dll
+C:\ADEX\SistemaCertificado\BL\bin\Debug\SpreadsheetLight.dll
+C:\ADEX\SistemaCertificado\BL\bin\Debug\System.Drawing.Common.dll
+C:\ADEX\SistemaCertificado\BL\bin\Debug\System.IO.Packaging.dll
+C:\ADEX\SistemaCertificado\BL\bin\Debug\BE.pdb
+C:\ADEX\SistemaCertificado\BL\bin\Debug\DA.pdb
+C:\ADEX\SistemaCertificado\BL\bin\Debug\DocumentFormat.OpenXml.xml
+C:\ADEX\SistemaCertificado\BL\bin\Debug\SpreadsheetLight.xml
+C:\ADEX\SistemaCertificado\BL\bin\Debug\System.IO.Packaging.xml
+C:\ADEX\SistemaCertificado\BL\obj\Debug\BL.csproj.AssemblyReference.cache
+C:\ADEX\SistemaCertificado\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
+C:\ADEX\SistemaCertificado\BL\obj\Debug\BL.csproj.CopyComplete
+C:\ADEX\SistemaCertificado\BL\obj\Debug\BL.dll
+C:\ADEX\SistemaCertificado\BL\obj\Debug\BL.pdb

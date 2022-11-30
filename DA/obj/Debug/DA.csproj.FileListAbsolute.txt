@@ -25,3 +25,12 @@ D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certifica
 D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\DA\obj\Debug\DA.csproj.CopyComplete
 D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\DA\obj\Debug\DA.dll
 D:\git- sls\Certificados de Joyeria\Sistema de Certificados\Sistema_de_Certificados\DA\obj\Debug\DA.pdb
+C:\ADEX\SistemaCertificado\DA\bin\Debug\DA.dll
+C:\ADEX\SistemaCertificado\DA\bin\Debug\DA.pdb
+C:\ADEX\SistemaCertificado\DA\bin\Debug\BE.dll
+C:\ADEX\SistemaCertificado\DA\bin\Debug\BE.pdb
+C:\ADEX\SistemaCertificado\DA\obj\Debug\DA.csproj.AssemblyReference.cache
+C:\ADEX\SistemaCertificado\DA\obj\Debug\DA.csproj.CoreCompileInputs.cache
+C:\ADEX\SistemaCertificado\DA\obj\Debug\DA.csproj.CopyComplete
+C:\ADEX\SistemaCertificado\DA\obj\Debug\DA.dll
+C:\ADEX\SistemaCertificado\DA\obj\Debug\DA.pdb

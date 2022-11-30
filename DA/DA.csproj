@@ -47,6 +47,7 @@
     <Compile Include="ConexionBD.cs" />
     <Compile Include="DACertificado.cs" />
     <Compile Include="DAEstado.cs" />
+    <Compile Include="DAEvento.cs" />
     <Compile Include="DATaller.cs" />
     <Compile Include="DATipo.cs" />
     <Compile Include="DAUsuario.cs" />

@@ -18,10 +18,10 @@ namespace DA
         {
             bool resultado = false;
             string dominio = ConfigurationManager.AppSettings["DomainActiveDirectory"];
-            using (PrincipalContext pc = new PrincipalContext(ContextType.Domain, dominio))
-            {
-                resultado = pc.ValidateCredentials(correo, clave);
-            }
+            //using (PrincipalContext pc = new PrincipalContext(ContextType.Domain, dominio))
+            //{
+                //resultado = pc.ValidateCredentials(correo, clave);
+            //}
 
             return resultado;
         }

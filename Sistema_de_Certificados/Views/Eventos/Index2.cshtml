@@ -1,0 +1,39 @@
+﻿@using BE;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml"; ;
+    List<BEEvento> lstEvento = ViewBag.EventoList as List<BEEvento>;
+}
+
+<p>
+    <a href="@Url.Action("Create","Eventos")" class="btn btn-sm btn-outline-success">
+        Crear Nuevo Evento
+    </a>
+</p>
+<table class="table table-sm table-hover table-striped" id="dta">
+    <tr class="thead-dark">
+        <th style="text-align: center;">ID</th>
+        <th style="text-align: center;">Nombre</th>
+    </tr>
+
+    @foreach (var item in lstEvento)
+    {
+        <tr>
+            <td class="td-sistema" style="text-align: left;">
+                @item.IdEvento
+            </td>
+            <td class="td-sistema" style="text-align: left;">
+                @item.NomEvento
+            </td>
+        </tr>
+    }
+
+</table>
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#dta').DataTable();
+        });
+
+    </script>
+}

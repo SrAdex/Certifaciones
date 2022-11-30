@@ -1,0 +1,99 @@
+﻿@model IEnumerable<BE.BEEvento>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+   
+    <p>
+        <a href="@Url.Action("Create","Eventos")" class="btn btn-sm btn-outline-success">
+            Crear Nuevo Evento
+        </a>
+    </p>
+    <table class="table table-sm table-hover table-striped" id="dataTableTickets">
+        <tr class="thead-dark">
+            <th>
+                @Html.DisplayNameFor(model => model.IdEvento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NomEvento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DesEvento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FCreate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UsrCreate)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.FUpdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UsrUpdate)
+            </th>*@
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdEvento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomEvento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DesEvento)
+                </td>
+                <td>
+                    @item.FCreate.ToShortDateString()
+
+                    @*@Html.DisplayFor(modelItem => item.FCreate)*@
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UsrCreate)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.FUpdate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UsrUpdate)
+                </td>*@
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.IdEvento }) 
+                    @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                    @Html.ActionLink("Delete", "Delete", new { id=item.IdEvento })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+
+</html>
+
+@section Scripts
+{
+    <script type="text/javascript">
+            var tabla_persona;
+             $(document).ready( function () {
+                 tabla_persona = $('#dataTableTickets').DataTable({
+                     "order": [[0, "desc"]]
+                 });
+             });
+    
+    </script>
+}
+
+

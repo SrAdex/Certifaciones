@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLCertificado.cs" />
+    <Compile Include="BLEvento.cs" />
     <Compile Include="BLTaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

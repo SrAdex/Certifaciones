@@ -176,6 +176,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CertificadosController.cs" />
+    <Compile Include="Controllers\EventosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TallerController.cs" />
     <Compile Include="Filters\VerifySession.cs" />
@@ -2305,6 +2306,9 @@
     <Content Include="Template_Login\scss\bootstrap\_utilities.scss" />
     <Content Include="Template_Login\scss\bootstrap\_variables.scss" />
     <Content Include="Template_Login\scss\style.scss" />
+    <Content Include="Views\Eventos\Index.cshtml" />
+    <Content Include="Views\Eventos\CRUD.cshtml" />
+    <Content Include="Views\Eventos\Index2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

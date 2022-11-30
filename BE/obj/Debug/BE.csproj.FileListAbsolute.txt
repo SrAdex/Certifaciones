@@ -10,3 +10,9 @@ D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Cert
 D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
 D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\BE\obj\Debug\BE.dll
 D:\git- sls\Expoalimentaria_Certificados\Sistema de Certificados\Sistema_de_Certificados\BE\obj\Debug\BE.pdb
+C:\ADEX\SistemaCertificado\BE\bin\Debug\BE.dll
+C:\ADEX\SistemaCertificado\BE\bin\Debug\BE.pdb
+C:\ADEX\SistemaCertificado\BE\obj\Debug\BE.csproj.AssemblyReference.cache
+C:\ADEX\SistemaCertificado\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
+C:\ADEX\SistemaCertificado\BE\obj\Debug\BE.dll
+C:\ADEX\SistemaCertificado\BE\obj\Debug\BE.pdb
