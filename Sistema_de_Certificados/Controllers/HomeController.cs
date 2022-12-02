@@ -119,7 +119,7 @@ namespace Sistema_de_Certificados.Controllers
             string imageloc = projectDir + "/Plantilla_Certificados/Constancia_general.jpg";
             for (int i = 0; i < 10; i++)
             {
-                v(file, imageloc, i);
+                GeneratePDF(file, imageloc, i);
             }
             
             return RedirectToAction("Index");
