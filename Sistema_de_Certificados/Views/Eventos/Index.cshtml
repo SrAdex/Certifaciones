@@ -1,99 +1,152 @@
-﻿@model IEnumerable<BE.BEEvento>
+﻿
+@using BE;
+
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    List<BEEvento> EventoList = ViewBag.EventoList as List<BEEvento>;
+
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-   
-    <p>
-        <a href="@Url.Action("Create","Eventos")" class="btn btn-sm btn-outline-success">
-            Crear Nuevo Evento
-        </a>
-    </p>
-    <table class="table table-sm table-hover table-striped" id="dataTableTickets">
-        <tr class="thead-dark">
-            <th>
-                @Html.DisplayNameFor(model => model.IdEvento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NomEvento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DesEvento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FCreate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UsrCreate)
-            </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.FUpdate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UsrUpdate)
-            </th>*@
-            <th></th>
-        </tr>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IdEvento)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NomEvento)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DesEvento)
-                </td>
-                <td>
-                    @item.FCreate.ToShortDateString()
+<div class="col-md-12 col-lg-9 col-xl-10">
+    <div class="card shadow">
+        <div class="card-header">
+            <h5 class="mt-2">Listado de Eventos</h5>
+            <hr />
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-sm btn-outline-primary mb-3" data-toggle="modal" data-target="#exampleModal">
+                Regitrar Nuevo Evento
+            </button>
+        </div>
 
-                    @*@Html.DisplayFor(modelItem => item.FCreate)*@
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UsrCreate)
-                </td>
-                @*<td>
-                    @Html.DisplayFor(modelItem => item.FUpdate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UsrUpdate)
-                </td>*@
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id=item.IdEvento }) 
-                    @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
-                    @Html.ActionLink("Delete", "Delete", new { id=item.IdEvento })
-                </td>
-            </tr>
-        }
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-xs table-hover table-striped" id="tbEventos">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                Nombre
+                            </th>
+                            <th>
+                                Descripción
+                            </th>
+                            <th>
+                                F. Creación
+                            </th>
+                            <th>
+                                Usuario
+                            </th>
+                            <th>Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var evento in EventoList)
+                        {
+                            <tr>
+                                <td>@evento.IdEvento</td>
 
-    </table>
-</body>
+                                <td>@evento.NomEvento</td>
 
-</html>
+                                <td>@evento.DesEvento</td>
 
+                                <td>@evento.FCreate.ToShortDateString()</td>
+
+                                <td>@evento.UsrCreate</td>
+
+                                <td>
+                                    <button class='btn btn-danger btn-sm' type='button' onclick="Eliminar(@evento.IdEvento)">
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Registrar Evento</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @using (Html.BeginForm("Create", "Eventos", FormMethod.Post))
+                {
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="control-label">Evento:</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Descripción:</label>
+                            <input type="text" class="form-control" />
+                        </div>
+                    </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Guardar</button>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+
+</div>
 @section Scripts
 {
     <script type="text/javascript">
-            var tabla_persona;
-             $(document).ready( function () {
-                 tabla_persona = $('#dataTableTickets').DataTable({
-                     "order": [[0, "desc"]]
-                 });
-             });
-    
+        var tabla_eventos;
+        $(document).ready(function () {
+            tabla_eventos = $('#tbEventos').DataTable({
+                "order": [[0, "desc"]]
+            });
+        });
+
+         function Eliminar($id) {
+            if ($id != 0) {
+                Swal.fire({
+                    title: '¿Estás seguro de eliminar este certificado?',
+                    text: "¡No podrás revertir esto!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, eliminarlo',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+
+                        jQuery.ajax({
+                            url: "@Url.Action("Delete", "Eventos")" + "?id=" + $id,
+                            type: "GET",
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+                            success: function (data) {
+
+                                if (data.resultado) {
+                                    location.reload();
+                                }
+                            }
+                        });
+
+                    }
+                })
+            } else {
+            }
+
+            }
     </script>
 }
-
-

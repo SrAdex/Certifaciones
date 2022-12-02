@@ -1,4 +1,5 @@
 ﻿using BE;
+using BL;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -21,13 +22,15 @@ namespace Sistema_de_Certificados.Controllers
         public ActionResult Index()
         {
             var EventoList = _BLEvento.GetListaEventos().ToList();
+            ViewBag.EventoList = EventoList;
+            
 
             if (EventoList.Count == 0)
             {
                 TempData["message"] = "No hay productos en la base de datos";
             }
-
-            return View(EventoList);
+            
+            return View();
         }
         public ActionResult Index2()
         {
@@ -37,12 +40,16 @@ namespace Sistema_de_Certificados.Controllers
             return View();
         }
 
-        public ActionResult CRUD(int id)
+        public ActionResult CRUD(string id)
         {
             BEEvento _Evento = new BEEvento();
-            if (!string.IsNullOrEmpty(id.ToString()))
+
+            var EventoList = _BLEvento.GetListaEventos().ToList();
+            ViewBag.EventoList = EventoList;
+
+            if (!string.IsNullOrEmpty(id))
             {
-                _Evento = _BLEvento.GetListaEventosxID(id);
+                _Evento = _BLEvento.GetListaEventosxID(int.Parse(id));
             }
 
             return View(_Evento);
@@ -111,26 +118,16 @@ namespace Sistema_de_Certificados.Controllers
             }
         }
 
-        // GET: Eventos/Delete/5
-        public ActionResult Delete(int id)
+        public JsonResult Delete(int id)
         {
-            return View();
-        }
+            bool rpta = true;
+            string mensaje = "";
+            mensaje = _BLEvento.EliminarEvento(id);
+            TempData["mensaje"] = mensaje;
+            if (mensaje != "Certificado eliminado correctamente.")
+                rpta = false;
 
-        // POST: Eventos/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return Json(new { resultado = rpta }, JsonRequestBehavior.AllowGet);
         }
     }
 }

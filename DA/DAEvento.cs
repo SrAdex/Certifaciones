@@ -158,7 +158,7 @@ namespace DA
                     SqlCommand cmd = new SqlCommand("sp_eliminar_eventos", con);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@in_IdEvento", idEvento);
-                    cmd.Parameters.Add("@mensaje", SqlDbType.VarChar, 100);
+                    cmd.Parameters.Add("@mensaje", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
 
                     con.Open();
                     int rs = cmd.ExecuteNonQuery();

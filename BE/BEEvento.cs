@@ -12,6 +12,7 @@ namespace BE
     {
         [Key]
         [DisplayName("ID")]
+        [Required]
         public int IdEvento { get; set; }
         [DisplayName("Nombre")]
         public string NomEvento { get; set; }

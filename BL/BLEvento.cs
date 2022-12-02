@@ -26,13 +26,6 @@ namespace BL
             return GetListaEventos().FirstOrDefault(e => e.IdEvento == id);
         }
 
-        public List<BETipo> GetListaTipos()
-        {
-            List<BETipo> lista = new List<BETipo>();
-            lista = _DATipo.ListarTipos();
-            return lista;
-        }
-
         public string RegistrarEvento(BEEvento _BEEvento)
         {
             string mensaje = "";
