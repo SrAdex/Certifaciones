@@ -63,7 +63,7 @@
                                     <button class='btn btn-danger btn-sm' type='button' onclick="Eliminar(@evento.IdEvento)">
                                         <i class="fa fa-trash" aria-hidden="true"></i>
                                     </button>
-                                    <a target="_blank" href="@Url.Content(ruta+evento.IdEvento+".pdf")">
+                                    <a target="_blank" href="@Url.Action("Plantilla", "Eventos")">
                                         <button class='btn btn-info btn-sm' type="button">
                                             <i class="fa fa-file" aria-hidden="true"></i>
                                         </button>
@@ -98,6 +98,10 @@
                         <div class="form-group">
                             <label class="control-label">Descripción:</label>
                             <input name="DesEvent" type="text" class="form-control" required />
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" id="plantillaExcel" name="plantillaExcel" class="custom-file-input" />
+                            <label id="lblArchivo" class="custom-file-label" for="fuSubirExcel">File</label>
                         </div>
                         <input type="hidden" name="UsrCreate" value="@usuario.NombreCompleto" />
                         <input type="hidden" name="UsrUpdate" value="@usuario.NombreCompleto" />

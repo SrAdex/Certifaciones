@@ -70,34 +70,34 @@ namespace Sistema_de_Certificados.Controllers
                 //    </p>
                 //</body>";
                 var testHtml = @"<head>
-	<style>
-		.contenedor {
-			position: relative;
-			display: inline-block;
-			text-align: center;
-		}
+	                                <style>
+		                                .contenedor {
+			                                position: relative;
+			                                display: inline-block;
+			                                text-align: center;
+		                                }
 
-		.texto-encima {
-			position: absolute;
-			top: 10px;
-			left: 10px;
-		}
+		                                .texto-encima {
+			                                position: absolute;
+			                                top: 10px;
+			                                left: 10px;
+		                                }
 
-		.centrado {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-		}
-	</style>
-</head>
-<body>
-	<div class=""contenedor"">
-		<img src=""https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2021/09/mejor-aplicacion-fondos-pantalla-animados-llegaria-android-dentro-poco-2482649.jpg"" />
-		<div class=""texto-encima"">Texto</div>
-		<div class=""centrado"">Centrado</div>
-	</div>
-</body>";
+		                                .centrado {
+			                                position: absolute;
+			                                top: 50%;
+			                                left: 50%;
+			                                transform: translate(-50%, -50%);
+		                                }
+	                                </style>
+                                </head>
+                                <body>
+	                                <div class=""contenedor"">
+		                                <img src=""https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2021/09/mejor-aplicacion-fondos-pantalla-animados-llegaria-android-dentro-poco-2482649.jpg"" />
+		                                <div class=""texto-encima"">Texto</div>
+		                                <div class=""centrado"">Centrado</div>
+	                                </div>
+                                </body>";
 
                 //PdfDocument pdf = PdfGenerator.GeneratePdf(testHtml, PageSize.A1, 0, null, null, null);
                 //pdf.Save("D:\\git- sls\\Sistema de Certificados\\document" + i + ".pdf");
