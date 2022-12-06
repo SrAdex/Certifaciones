@@ -26,10 +26,10 @@ namespace BL
             return GetListaEventos().FirstOrDefault(e => e.IdEvento == id);
         }
 
-        public string RegistrarEvento(BEEvento _BEEvento)
+        public string RegistrarEvento(string NomEvent, string DesEvent, string UsrCreate, string UsrUpdate)
         {
             string mensaje = "";
-            mensaje = _DAEvento.RegistrarEventos(_BEEvento);
+            mensaje = _DAEvento.RegistrarEventos(NomEvent, DesEvent, UsrCreate, UsrUpdate);
             return mensaje;
         }
 

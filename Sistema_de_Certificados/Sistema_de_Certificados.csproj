@@ -2309,6 +2309,7 @@
     <Content Include="Views\Eventos\Index.cshtml" />
     <Content Include="Views\Eventos\CRUD.cshtml" />
     <Content Include="Views\Eventos\Index2.cshtml" />
+    <Content Include="Views\Eventos\Plantilla.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

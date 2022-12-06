@@ -7,6 +7,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 using BE;
 
@@ -79,7 +80,7 @@ namespace DA
             return lista;
         }
     
-        public string RegistrarEventos(BEEvento _BEEvento)
+        public string RegistrarEventos(string NomEvent, string DesEvent, string UsrCreate, string UsrUpdate)
         {
             string mensaje = "";
 
@@ -89,10 +90,10 @@ namespace DA
                 {
                     SqlCommand cmd = new SqlCommand("sp_registrar_eventos", con);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@vc_NomEvent", _BEEvento.NomEvento);
-                    cmd.Parameters.AddWithValue("@vc_DesEvent", _BEEvento.DesEvento);
-                    cmd.Parameters.AddWithValue("@vc_UsrCreate", _BEEvento.UsrCreate);
-                    cmd.Parameters.AddWithValue("@vc_UsrUpdate", _BEEvento.UsrCreate);
+                    cmd.Parameters.AddWithValue("@vc_NomEvent", NomEvent);
+                    cmd.Parameters.AddWithValue("@vc_DesEvent", DesEvent);
+                    cmd.Parameters.AddWithValue("@vc_UsrCreate", UsrCreate);
+                    cmd.Parameters.AddWithValue("@vc_UsrUpdate", UsrUpdate);
                     cmd.Parameters.Add("@mensaje", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
 
                     con.Open();

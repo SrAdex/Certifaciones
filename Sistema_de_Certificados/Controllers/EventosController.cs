@@ -1,5 +1,7 @@
 ﻿using BE;
 using BL;
+using PdfSharp.Drawing;
+using PdfSharp.Pdf;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -29,7 +31,9 @@ namespace Sistema_de_Certificados.Controllers
             {
                 TempData["message"] = "No hay productos en la base de datos";
             }
-            
+
+            ViewBag.ruta = "~/Certificados/";
+
             return View();
         }
         public ActionResult Index2()
@@ -40,26 +44,22 @@ namespace Sistema_de_Certificados.Controllers
             return View();
         }
 
-        public ActionResult CRUD(string id)
+        public ActionResult Plantilla()
         {
-            BEEvento _Evento = new BEEvento();
-
-            var EventoList = _BLEvento.GetListaEventos().ToList();
-            ViewBag.EventoList = EventoList;
-
-            if (!string.IsNullOrEmpty(id))
-            {
-                _Evento = _BLEvento.GetListaEventosxID(int.Parse(id));
-            }
-
-            return View(_Evento);
+            return View();
         }
+
         [HttpPost]
-        public ActionResult CRUD(BEEvento _Evento)
+        public ActionResult Index(HttpPostedFileBase plantillaExcel, int tipo)
         {
-            TempData["mensaje"] = (_BLEvento.GetListaEventosxID(_Evento.IdEvento) == null ? _BLEvento.RegistrarEvento(_Evento) : _BLEvento.ActualizarEvento(_Evento));
-            return View(_Evento);
+            string mensaje = "";
+            //mensaje = _BLCertificado.RegistroMasivo(plantillaExcel, tipo);
+            TempData["mensaje"] = mensaje;
+            return RedirectToAction("Index");
         }
+
+        
+
 
         // GET: Eventos/Details/5
         public ActionResult Details(int id)
@@ -75,14 +75,15 @@ namespace Sistema_de_Certificados.Controllers
 
         // POST: Eventos/Create
         [HttpPost]
-        public ActionResult Create(BEEvento _BEEvento)
+        public ActionResult Create(string NomEvent, string DesEvent, string UsrCreate, string UsrUpdate)
         {
             string mensaje = "";
             try
             {
+                
                 if (ModelState.IsValid)
                 {
-                    mensaje = _BLEvento.RegistrarEvento(_BEEvento);
+                    mensaje = _BLEvento.RegistrarEvento(NomEvent, DesEvent, UsrCreate, UsrUpdate);
                 }
 
                 TempData["message"] = mensaje;
@@ -124,10 +125,11 @@ namespace Sistema_de_Certificados.Controllers
             string mensaje = "";
             mensaje = _BLEvento.EliminarEvento(id);
             TempData["mensaje"] = mensaje;
-            if (mensaje != "Certificado eliminado correctamente.")
+            if (!mensaje.Contains("Satisfactoriamente"))
                 rpta = false;
 
             return Json(new { resultado = rpta }, JsonRequestBehavior.AllowGet);
         }
+        
     }
 }
