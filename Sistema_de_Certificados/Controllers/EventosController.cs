@@ -25,7 +25,7 @@ namespace Sistema_de_Certificados.Controllers
         {
             var EventoList = _BLEvento.GetListaEventos().ToList();
             ViewBag.EventoList = EventoList;
-            
+
 
             if (EventoList.Count == 0)
             {
@@ -36,6 +36,16 @@ namespace Sistema_de_Certificados.Controllers
 
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Index(HttpPostedFileBase plantillaExcel, int tipo)
+        {
+            string mensaje = "";
+            //mensaje = _BLCertificado.RegistroMasivo(plantillaExcel, tipo);
+            TempData["mensaje"] = mensaje;
+            return RedirectToAction("Index");
+        }
+
         public ActionResult Index2()
         {
             var EventoList = _BLEvento.GetListaEventos().ToList();
@@ -49,16 +59,6 @@ namespace Sistema_de_Certificados.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Index(HttpPostedFileBase plantillaExcel, int tipo)
-        {
-            string mensaje = "";
-            //mensaje = _BLCertificado.RegistroMasivo(plantillaExcel, tipo);
-            TempData["mensaje"] = mensaje;
-            return RedirectToAction("Index");
-        }
-
-        
 
 
         // GET: Eventos/Details/5
@@ -75,12 +75,12 @@ namespace Sistema_de_Certificados.Controllers
 
         // POST: Eventos/Create
         [HttpPost]
-        public ActionResult Create(string NomEvent, string DesEvent, string UsrCreate, string UsrUpdate)
+        public ActionResult Create(string NomEvent, string DesEvent, string UsrCreate, string UsrUpdate, HttpPostedFileBase plantillaExcel)
         {
             string mensaje = "";
             try
             {
-                
+
                 if (ModelState.IsValid)
                 {
                     mensaje = _BLEvento.RegistrarEvento(NomEvent, DesEvent, UsrCreate, UsrUpdate);
@@ -90,7 +90,7 @@ namespace Sistema_de_Certificados.Controllers
 
                 return RedirectToAction("Index");
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
                 TempData["message"] = ex.Message;
                 return View();
@@ -130,6 +130,6 @@ namespace Sistema_de_Certificados.Controllers
 
             return Json(new { resultado = rpta }, JsonRequestBehavior.AllowGet);
         }
-        
+
     }
 }

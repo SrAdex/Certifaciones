@@ -24,42 +24,44 @@
 
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-xs table-hover table-striped" id="tbEventos">
+                <table class="table table-xs table-hover" id="tbEventos">
                     <thead class="thead-dark">
                         <tr>
-                            <th>
+                            <th class="text-center">
                                 ID
                             </th>
-                            <th>
+                            <th class="text-center">
                                 Nombre
                             </th>
-                            <th>
+                            <th class="text-center">
                                 Descripción
                             </th>
-                            <th>
+                            <th class="text-center">
                                 F. Creación
                             </th>
-                            <th>
+                            <th class="text-center">
                                 Usuario
                             </th>
-                            <th>Opciones</th>
+                            <th class="text-center">
+                                Opciones
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var evento in EventoList)
                         {
                             <tr>
-                                <td>@evento.IdEvento</td>
+                                <td class="text-center">@evento.IdEvento</td>
 
-                                <td>@evento.NomEvento</td>
+                                <td class="text-center">@evento.NomEvento</td>
 
-                                <td>@evento.DesEvento</td>
+                                <td class="text-center">@evento.DesEvento</td>
 
-                                <td>@evento.FCreate.ToShortDateString()</td>
+                                <td class="text-center">@evento.FCreate.ToShortDateString()</td>
 
-                                <td>@evento.UsrCreate</td>
+                                <td class="text-center">@evento.UsrCreate</td>
 
-                                <td>
+                                <td class="text-center">
                                     <button class='btn btn-danger btn-sm' type='button' onclick="Eliminar(@evento.IdEvento)">
                                         <i class="fa fa-trash" aria-hidden="true"></i>
                                     </button>
@@ -76,7 +78,7 @@
             </div>
         </div>
     </div>
-    
+
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -107,10 +109,10 @@
                         <input type="hidden" name="UsrUpdate" value="@usuario.NombreCompleto" />
                     </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <input type="submit" value="Grabar" class="btn btn-primary"/>
-                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <input type="submit" value="Grabar" class="btn btn-primary" />
+                    </div>
                 }
             </div>
         </div>
@@ -120,11 +122,37 @@
 @section Scripts
 {
     <script type="text/javascript">
+
+        const dataTableOptions = {
+            columnDefs: [
+                { orderable: false, targets: [2,5] }
+            ],
+            language: {
+                "processing": "Procesando...",
+                "lengthMenu": "Mostrar _MENU_ registros",
+                "zeroRecords": "No se encontraron resultados",
+                "emptyTable": "Ningún dato disponible en esta tabla",
+                "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "search": "Buscar:",
+                "infoThousands": ",",
+                "loadingRecords": "Cargando...",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Último",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                },
+                "aria": {
+                    "sortAscending": ": Activar para ordenar la columna de manera ascendente",
+                    "sortDescending": ": Activar para ordenar la columna de manera descendente"
+                },
+            }
+        }
+
         var tabla_eventos;
         $(document).ready(function () {
-            tabla_eventos = $('#tbEventos').DataTable({
-                "order": [[0, "desc"]]
-            });
+            tabla_eventos = $('#tbEventos').DataTable(dataTableOptions);
         });
 
          function Eliminar($id) {
