@@ -79,8 +79,96 @@ namespace DA
             }
             return lista;
         }
-    
-        public string RegistrarEventos(string NomEvent, string DesEvent, string UsrCreate, string UsrUpdate)
+
+        public BEEvento GerEventoxId(int idEvento)
+        {
+            BEEvento obj = new BEEvento();
+            using (SqlConnection con = ConexionBD.ObtenerConexion())
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("sp_listar_eventosxId", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@in_idEvento", idEvento);
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    obj = new BEEvento()
+                    {
+                        IdEvento = dr.GetInt32(0),
+                        NomEvento = dr.GetString(1),
+                        DesEvento = dr.GetString(2)
+                    };
+
+                    if (dr.IsDBNull(3))
+                    {
+                        obj.FCreate = DateTime.Now;
+                    }
+                    else
+                    {
+                        obj.FCreate = dr.GetDateTime(3);
+                    }
+
+                    if (dr.IsDBNull(4))
+                    {
+                        obj.UsrCreate = "";
+                    }
+                    else
+                    {
+                        obj.UsrCreate = dr.GetString(4);
+                    }
+
+                    if (dr.IsDBNull(5))
+                    {
+                        obj.FUpdate = DateTime.Now;
+                    }
+                    else
+                    {
+                        obj.FUpdate = dr.GetDateTime(5);
+                    }
+
+                    if (dr.IsDBNull(6))
+                    {
+                        obj.UsrUpdate = "";
+                    }
+                    else
+                    {
+                        obj.UsrUpdate = dr.GetString(6);
+                    }
+
+                    if (dr.IsDBNull(8))
+                    {
+                        obj.ruta = "";
+                    }
+                    else
+                    {
+                        obj.ruta = dr.GetString(8);
+                    }
+
+                    if (dr.IsDBNull(9))
+                    {
+                        obj.posicionY = 0;
+                    }
+                    else
+                    {
+                        obj.posicionY = dr.GetInt32(9);
+                    }
+
+                    if (dr.IsDBNull(10))
+                    {
+                        obj.tamanioLetra = 0;
+                    }
+                    else
+                    {
+                        obj.tamanioLetra = dr.GetInt32(10);
+                    }
+                }
+                dr.Close();
+                con.Close();
+            }
+            return obj;
+        }
+
+        public string RegistrarEventos(string NomEvent, string DesEvent, string UsrCreate, string UsrUpdate, string ruta)
         {
             string mensaje = "";
 
@@ -94,6 +182,7 @@ namespace DA
                     cmd.Parameters.AddWithValue("@vc_DesEvent", DesEvent);
                     cmd.Parameters.AddWithValue("@vc_UsrCreate", UsrCreate);
                     cmd.Parameters.AddWithValue("@vc_UsrUpdate", UsrUpdate);
+                    cmd.Parameters.AddWithValue("@vc_ruta", ruta);
                     cmd.Parameters.Add("@mensaje", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
 
                     con.Open();

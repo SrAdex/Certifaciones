@@ -22,3 +22,9 @@ D:\Proyectos\sistema_certificados\BE\obj\Debug\BE.csproj.AssemblyReference.cache
 D:\Proyectos\sistema_certificados\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
 D:\Proyectos\sistema_certificados\BE\obj\Debug\BE.dll
 D:\Proyectos\sistema_certificados\BE\obj\Debug\BE.pdb
+D:\ADEX\Proyectos\sistema_certificados\BE\bin\Debug\BE.dll
+D:\ADEX\Proyectos\sistema_certificados\BE\bin\Debug\BE.pdb
+D:\ADEX\Proyectos\sistema_certificados\BE\obj\Debug\BE.csproj.AssemblyReference.cache
+D:\ADEX\Proyectos\sistema_certificados\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
+D:\ADEX\Proyectos\sistema_certificados\BE\obj\Debug\BE.dll
+D:\ADEX\Proyectos\sistema_certificados\BE\obj\Debug\BE.pdb

@@ -13,97 +13,97 @@
 
 <div class="row">
     <div class="col-md-12 col-lg-3 col-xl-2">
-            <div class="card shadow mb-5">
-                <div class="card-header">
-                    <h5 class="card-header-text">Filtros</h5>
-                </div>
+        <div class="card shadow mb-5">
+            <div class="card-header">
+                <h5 class="card-header-text">Filtros</h5>
+            </div>
 
 
-                <div class="accordion">
-                    <div id="accordion" role="tablist" aria-multiselectable="true">
-                        @using (Html.BeginForm("EstablecerFiltrosGeneral", "Certificados", FormMethod.Get))
-                        {
-                            <div class="card m-b-0 border-top">
-                                <div class="card-body text-dark" role="tab"
-                                     id="headingOne">
-                                    <h6 class="mb-0">
-                                        <a class="accordion-msg waves-effect waves-dark d-flex justify-content-between"
-                                           data-toggle="collapse"
-                                           data-parent="#accordion" href="#collapseOne"
-                                           aria-expanded="true"
-                                           aria-controls="collapseOne">
-                                            Estado <i class="fas fa-caret-down"></i>
-                                        </a>
-                                    </h6>
+            <div class="accordion">
+                <div id="accordion" role="tablist" aria-multiselectable="true">
+                    @using (Html.BeginForm("EstablecerFiltrosGeneral", "Certificados", FormMethod.Get))
+                    {
+                        <div class="card m-b-0 border-top">
+                            <div class="card-body text-dark" role="tab"
+                                 id="headingOne">
+                                <h6 class="mb-0">
+                                    <a class="accordion-msg waves-effect waves-dark d-flex justify-content-between"
+                                       data-toggle="collapse"
+                                       data-parent="#accordion" href="#collapseOne"
+                                       aria-expanded="true"
+                                       aria-controls="collapseOne">
+                                        Estado <i class="fas fa-caret-down"></i>
+                                    </a>
+                                </h6>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse show"
+                                 role="tabpanel" aria-labelledby="headingOne">
+                                <div class="card-body widget-content" style="text-align:left">
+
+                                    @foreach (var estado in listEstado)
+                                    {
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="@estado.id_estado" name="estados" id="@estado.nombre_estado"
+                                                   @(filtroEstado.Contains(estado.id_estado) ? "checked" : "" ) />
+                                            <label class="form-check-label mt-1" for="@estado.nombre_estado" title="@estado.nombre_estado">
+                                                @estado.nombre_estado
+                                            </label>
+                                        </div>
+                                        <hr class="sidebar-divider d-none d-md-block">
+                                    }
                                 </div>
-                                <div id="collapseOne" class="panel-collapse collapse show"
-                                     role="tabpanel" aria-labelledby="headingOne">
-                                    <div class="card-body widget-content" style="text-align:left">
+                            </div>
+                        </div>
 
-                                        @foreach (var estado in listEstado)
+                        <div class="card m-b-0 border-top">
+                            <div class="card-body" role="tab"
+                                 id="headingOne">
+                                <h6 class="mb-0">
+                                    <a class="accordion-msg waves-effect waves-dark d-flex justify-content-between"
+                                       data-toggle="collapse"
+                                       data-parent="#accordion" href="#collapseTwo"
+                                       aria-expanded="true"
+                                       aria-controls="collapseOne">
+                                        Tipo <i class="fas fa-caret-down"></i>
+                                    </a>
+                                </h6>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse show"
+                                 role="tabpanel" aria-labelledby="headingOne">
+                                <div class="card-body widget-content">
+
+                                    @if (ViewBag.esAdmin != false)
+                                    {
+                                        foreach (var tipo in listTipo)
                                         {
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="@estado.id_estado" name="estados" id="@estado.nombre_estado"
-                                                       @(filtroEstado.Contains(estado.id_estado) ? "checked" : "" ) />
-                                                <label class="form-check-label mt-1" for="@estado.nombre_estado" title="@estado.nombre_estado">
-                                                    @estado.nombre_estado
+                                            <div class="form-check" style="text-align:left">
+                                                <input class="form-check-input" type="checkbox" value="@tipo.id_tipo" name="tipos" id="@tipo.nombreTipo"
+                                                       @(filtroTipos.Contains(tipo.id_tipo) ? "checked" : "") />
+                                                <label class="form-check-label mt-1 texto-ellipsis" for="@tipo.nombreTipo" title="@tipo.nombreTipo">
+                                                    @tipo.nombreTipo
                                                 </label>
                                             </div>
                                             <hr class="sidebar-divider d-none d-md-block">
                                         }
-                                    </div>
+                                    }
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="card m-b-0 border-top">
-                                <div class="card-body" role="tab"
-                                     id="headingOne">
-                                    <h6 class="mb-0">
-                                        <a class="accordion-msg waves-effect waves-dark d-flex justify-content-between"
-                                           data-toggle="collapse"
-                                           data-parent="#accordion" href="#collapseTwo"
-                                           aria-expanded="true"
-                                           aria-controls="collapseOne">
-                                            Tipo <i class="fas fa-caret-down"></i>
-                                        </a>
-                                    </h6>
-                                </div>
-                                <div id="collapseTwo" class="panel-collapse collapse show"
-                                     role="tabpanel" aria-labelledby="headingOne">
-                                    <div class="card-body widget-content">
-
-                                        @if (ViewBag.esAdmin != false)
-                                        {
-                                            foreach (var tipo in listTipo)
-                                            {
-                                                <div class="form-check" style="text-align:left">
-                                                    <input class="form-check-input" type="checkbox" value="@tipo.id_tipo" name="tipos" id="@tipo.nombreTipo"
-                                                           @(filtroTipos.Contains(tipo.id_tipo) ? "checked" : "") />
-                                                    <label class="form-check-label mt-1 texto-ellipsis" for="@tipo.nombreTipo" title="@tipo.nombreTipo">
-                                                        @tipo.nombreTipo
-                                                    </label>
-                                                </div>
-                                                <hr class="sidebar-divider d-none d-md-block">
-                                            }
-                                        }
-                                    </div>
-                                </div>
+                        <div class="card m-b-0 border-top">
+                            <div class="card-header" role="tab"
+                                 id="headingOne" style="text-align: center;">
+                                <button type="submit" class="btn btn-sm btn-primary col-auto m-auto">
+                                    Filtrar <i class="fas fa-filter"></i>
+                                </button>
                             </div>
 
-                            <div class="card m-b-0 border-top">
-                                <div class="card-header" role="tab"
-                                     id="headingOne" style="text-align: center;">
-                                    <button type="submit" class="btn btn-sm btn-primary col-auto m-auto">
-                                        Filtrar <i class="fas fa-filter"></i>
-                                    </button>
-                                </div>
-
-                            </div>
-                        }
-                    </div>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
+    </div>
 
     <div class="col-md-12 col-lg-9 col-xl-10">
 
@@ -124,11 +124,11 @@
 
             <div class="card-body">
                 @*@if (TempData["mensaje"] != null)
-                {
-                    <div class="alert @TempData["tipoAlerta"]" role="alert">
-                        @TempData["mensaje"]
-                    </div>
-                }*@
+                    {
+                        <div class="alert @TempData["tipoAlerta"]" role="alert">
+                            @TempData["mensaje"]
+                        </div>
+                    }*@
                 <div class="table-responsive">
                     <table class="table table-xs table-hover" id="dataTableTickets" cellspacing="0">
                         <thead class="table-dark">
@@ -176,19 +176,19 @@
                                             </td>
                                         }
                                     }
-                                   
-                                <td class="td-sistema" style="text-align: left;">
 
-                                    <button class='btn btn-danger btn-sm' type='button' onclick="Eliminar(@certificado.id)">
-                                        <i class="fa fa-trash" aria-hidden="true"></i>
-                                    </button>
-                                    <a target="_blank" href="@Url.Content(ruta+certificado.codigo+".pdf")">
-                                        <button class='btn btn-info btn-sm' type='button'>
-                                            <i class="fa fa-file" aria-hidden="true"></i>
+                                    <td class="td-sistema" style="text-align: left;">
+
+                                        <button class='btn btn-danger btn-sm' type='button' onclick="Eliminar(@certificado.id)">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
                                         </button>
-                                    </a>
+                                        <a target="_blank" href="@Url.Content(ruta+certificado.codigo+".pdf")">
+                                            <button class='btn btn-info btn-sm' type='button'>
+                                                <i class="fa fa-file" aria-hidden="true"></i>
+                                            </button>
+                                        </a>
 
-                                </td>
+                                    </td>
                                 </tr>
                             }
                         </tbody>
@@ -319,18 +319,13 @@
                                 if (data.resultado) {
                                     location.reload();
                                 }
-                                else {
-                                    console.log("aber");
-                                }
                             }
                         });
 
                     }
                 })
+            } else {
             }
-            else {
-
-                console.log("aber");
 
             }
 

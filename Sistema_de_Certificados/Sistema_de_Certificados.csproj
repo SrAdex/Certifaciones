@@ -229,7 +229,6 @@
     <Content Include="Img\logo_adex_blanco.png" />
     <Content Include="Img\logo_ADEX_negro.jpg" />
     <Content Include="Img\logo_adex_solo.png" />
-    <Content Include="Plantilla_Certificados\Prueba.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Cargas\Registro_Masivo_12-09-2022-00-19.xlsx" />
@@ -340,7 +339,6 @@
     <Content Include="DTLogin\scss\layouts\main.scss" />
     <Content Include="DTLogin\scss\layouts\responsive.scss" />
     <Content Include="DTLogin\scss\style.scss" />
-    <Content Include="Plantilla_Certificados\Plantilla_CargaMasiva.xlsx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

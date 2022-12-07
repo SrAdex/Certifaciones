@@ -43,3 +43,12 @@ D:\Proyectos\sistema_certificados\DA\obj\Debug\DA.csproj.CoreCompileInputs.cache
 D:\Proyectos\sistema_certificados\DA\obj\Debug\DA.csproj.CopyComplete
 D:\Proyectos\sistema_certificados\DA\obj\Debug\DA.dll
 D:\Proyectos\sistema_certificados\DA\obj\Debug\DA.pdb
+D:\ADEX\Proyectos\sistema_certificados\DA\bin\Debug\DA.dll
+D:\ADEX\Proyectos\sistema_certificados\DA\bin\Debug\DA.pdb
+D:\ADEX\Proyectos\sistema_certificados\DA\bin\Debug\BE.dll
+D:\ADEX\Proyectos\sistema_certificados\DA\bin\Debug\BE.pdb
+D:\ADEX\Proyectos\sistema_certificados\DA\obj\Debug\DA.csproj.AssemblyReference.cache
+D:\ADEX\Proyectos\sistema_certificados\DA\obj\Debug\DA.csproj.CoreCompileInputs.cache
+D:\ADEX\Proyectos\sistema_certificados\DA\obj\Debug\DA.csproj.CopyComplete
+D:\ADEX\Proyectos\sistema_certificados\DA\obj\Debug\DA.dll
+D:\ADEX\Proyectos\sistema_certificados\DA\obj\Debug\DA.pdb

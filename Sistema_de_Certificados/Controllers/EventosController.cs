@@ -54,8 +54,11 @@ namespace Sistema_de_Certificados.Controllers
             return View();
         }
 
-        public ActionResult Plantilla()
+        public ActionResult Plantilla(int IdEvento)
         {
+            var ObjEvento = _BLEvento.GetEventoxId(IdEvento);
+            ViewBag.eventoObj = ObjEvento;
+
             return View();
         }
 
@@ -75,17 +78,16 @@ namespace Sistema_de_Certificados.Controllers
 
         // POST: Eventos/Create
         [HttpPost]
-        public ActionResult Create(string NomEvent, string DesEvent, string UsrCreate, string UsrUpdate, HttpPostedFileBase plantillaExcel)
+        public ActionResult Create(string NomEvent, string DesEvent, string UsrCreate, string UsrUpdate, HttpPostedFileBase plantillaCertificado)
         {
             string mensaje = "";
             try
             {
-
                 if (ModelState.IsValid)
                 {
-                    mensaje = _BLEvento.RegistrarEvento(NomEvent, DesEvent, UsrCreate, UsrUpdate);
+                    mensaje = _BLEvento.RegistrarEvento(NomEvent, DesEvent, UsrCreate, UsrUpdate, plantillaCertificado);
                 }
-
+                 
                 TempData["message"] = mensaje;
 
                 return RedirectToAction("Index");
