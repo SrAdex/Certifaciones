@@ -65,7 +65,11 @@
                                     <button class='btn btn-danger btn-sm' type='button' onclick="Eliminar(@evento.IdEvento)">
                                         <i class="fa fa-trash" aria-hidden="true"></i>
                                     </button>
+<<<<<<< HEAD
                                     <a target="_blank" href="@(Url.Action("Plantilla", "Eventos") + $"?IdEvento={@evento.IdEvento}")">
+=======
+                                    <a target="_blank" href="@(Url.Action("Plantilla", "Eventos")+ $"?id={@evento.IdEvento}")">
+>>>>>>> origin/main
                                         <button class='btn btn-info btn-sm' type="button">
                                             <i class="fa fa-file" aria-hidden="true"></i>
                                         </button>
@@ -101,12 +105,18 @@
                             <label class="control-label">Descripción:</label>
                             <input name="DesEvent" type="text" class="form-control" required />
                         </div>
+<<<<<<< HEAD
                         <div class="form-group">
                             <label class="control-label">Ingrese la Plantilla Excel</label>
                             <div class="custom-file">
                                 <input type="file" id="plantillaExcel" name="plantillaCertificado" class="custom-file-input" accept="image/jpeg" />
                                 <label id="lblArchivo" class="custom-file-label" for="fuSubirExcel"></label>
                             </div>
+=======
+                        <div class="custom-file">
+                            <input type="file" id="plantillaExcel" name="plantillaCertificado" class="custom-file-input" accept="image/jpeg" />
+                            <label id="lblArchivo" class="custom-file-label" for="fuSubirExcel">File</label>
+>>>>>>> origin/main
                         </div>
                         <input type="hidden" name="UsrCreate" value="@usuario.NombreCompleto" />
                         <input type="hidden" name="UsrUpdate" value="@usuario.NombreCompleto" />
@@ -195,6 +205,12 @@
             } else {
             }
 
-            }
+        }
+
+        $("#plantillaExcel").on('change', function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        })
+
     </script>
 }

@@ -1,5 +1,6 @@
 ﻿using BE;
 using BL;
+using Microsoft.Ajax.Utilities;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 using System;
@@ -37,28 +38,21 @@ namespace Sistema_de_Certificados.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Index(HttpPostedFileBase plantillaExcel, int tipo)
+
+        public ActionResult Plantilla(int id)
         {
-            string mensaje = "";
-            //mensaje = _BLCertificado.RegistroMasivo(plantillaExcel, tipo);
-            TempData["mensaje"] = mensaje;
-            return RedirectToAction("Index");
-        }
+            var ObjEvento = _BLEvento.GetListaEventosxID(id);
 
-        public ActionResult Index2()
-        {
-            var EventoList = _BLEvento.GetListaEventos().ToList();
-            ViewBag.EventoList = EventoList;
+            ViewBag.eventoObj = ObjEvento;
 
-            return View();
-        }
-
+<<<<<<< HEAD
         public ActionResult Plantilla(int IdEvento)
         {
             var ObjEvento = _BLEvento.GetEventoxId(IdEvento);
             ViewBag.eventoObj = ObjEvento;
 
+=======
+>>>>>>> origin/main
             return View();
         }
 
@@ -131,6 +125,19 @@ namespace Sistema_de_Certificados.Controllers
                 rpta = false;
 
             return Json(new { resultado = rpta }, JsonRequestBehavior.AllowGet);
+        }
+
+    
+        [HttpPost]
+        public JsonResult Actualizar(int idEvento, int posicionY, int fontSize, string rgb)
+        {
+            bool rpta = true;
+            string mensaje = "";
+            mensaje = _BLEvento.ActualizarEvento(idEvento, posicionY, fontSize, rgb);
+            if (!mensaje.Contains("actualizado"))
+                rpta = false;
+
+            return Json(new {resultado = rpta});
         }
 
     }

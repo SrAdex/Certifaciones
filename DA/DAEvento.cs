@@ -72,6 +72,34 @@ namespace DA
                     {
                         obj.UsrUpdate = dr.GetString(6);
                     }
+
+                    if (dr.IsDBNull(8))
+                    {
+                        obj.ruta = "";
+                    }
+                    else
+                    {
+                        obj.ruta = dr.GetString(8);
+                    }
+
+                    if (dr.IsDBNull(9))
+                    {
+                        obj.posicionY = 0;
+                    }
+                    else
+                    {
+                        obj.posicionY = dr.GetInt32(9);
+                    }
+
+                    if (dr.IsDBNull(10))
+                    {
+                        obj.tamanioLetra = 0;
+                    }
+                    else
+                    {
+                        obj.tamanioLetra = dr.GetInt32(10);
+                    }
+
                     lista.Add(obj);
                 }
                 dr.Close();
@@ -79,6 +107,7 @@ namespace DA
             }
             return lista;
         }
+<<<<<<< HEAD
 
         public BEEvento GerEventoxId(int idEvento)
         {
@@ -168,6 +197,9 @@ namespace DA
             return obj;
         }
 
+=======
+    
+>>>>>>> origin/main
         public string RegistrarEventos(string NomEvent, string DesEvent, string UsrCreate, string UsrUpdate, string ruta)
         {
             string mensaje = "";
@@ -203,40 +235,39 @@ namespace DA
             return mensaje;
         }
     
-        public string ActualizarEventos(BEEvento _BEEvento)
+
+        public string ActualizarEventos(int idEvento, int posicionY, int tamanioLetra)
         {
             string mensaje = "";
 
-            using(SqlConnection con = ConexionBD.ObtenerConexion())
+            using (SqlConnection con = ConexionBD.ObtenerConexion())
             {
                 try
                 {
-                    SqlCommand cmd = new SqlCommand("sp_actualizar_eventos", con);
+                    SqlCommand cmd = new SqlCommand("sp_ActualizarPDF", con);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@in_IdEvento", _BEEvento.IdEvento);
-                    cmd.Parameters.AddWithValue("@vc_NomEvent", _BEEvento.NomEvento);
-                    cmd.Parameters.AddWithValue("@vc_DesEvent", _BEEvento.DesEvento);
-                    cmd.Parameters.AddWithValue("@vc_UsrUpdate", _BEEvento.UsrUpdate);
+                    cmd.Parameters.AddWithValue("@idEvento", idEvento);
+                    cmd.Parameters.AddWithValue("@posicionY", posicionY);
+                    cmd.Parameters.AddWithValue("@tamanioLetra", tamanioLetra);
                     cmd.Parameters.Add("@mensaje", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
 
                     con.Open();
                     int rs = cmd.ExecuteNonQuery();
-
                     mensaje = cmd.Parameters["@mensaje"].Value.ToString();
                 }
                 catch (Exception ex)
                 {
-                    mensaje = "Error! " + ex.Message;
+                    mensaje = "Error!" + ex.Message;
                 }
                 finally
                 {
                     con.Close();
                 }
             }
-
             return mensaje;
         }
-    
+
+       
         public string EliminarEventos(int idEvento)
         {
             string mensaje = "";

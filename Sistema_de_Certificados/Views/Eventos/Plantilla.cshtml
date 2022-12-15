@@ -1,4 +1,5 @@
 ﻿@using BE;
+<<<<<<< HEAD
 @{
     ViewBag.Title = "Plantilla";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -35,4 +36,99 @@
         </div>
     </div>
 </div>
+=======
 
+@{
+    ViewBag.Title = "Plantilla";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    BE.BEEvento objEvento = ViewBag.eventoObj as BEEvento;
+}
+
+<h3 class="text-primary text-center">Personalización de Certificado</h3>
+>>>>>>> origin/main
+
+<hr />
+
+<div class="row">
+    <div class="col-md-12 col-lg-4 col-xl-3">
+        <div class="card shadow mb-5">
+            <div class="card-header">
+                <h5 class="card-header-text text-center">Parametros de Plantilla</h5>
+            </div>
+            
+            <div class="card-body">
+                <input type="hidden" name="idEvento" id="idEvento"  value="@objEvento.IdEvento"/>
+                <div class="form-group">
+                    <label class="control-label">Posición:</label>
+                    <input name="posicionY" id="posicionY" type="number" class="form-control" value="@objEvento.posicionY" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Tamaño de la letra:</label>
+                    <input name="fontSize" id="fontSize" type="number" class="form-control" value="@objEvento.tamanioLetra" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Color:</label>
+                    <input type="color" onchange="getColor(event)" value="#ff0000" >
+                </div>
+            </div>
+            <div class="card-footer">
+                <input class='btn btn-outline-primary my-2 w-100' type="submit" value="Actualizar" onclick="Actualizar(@objEvento.IdEvento)" />
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-lg-8 col-xl-9">
+        <div class="card shadow mb-5">
+            <div class="card-header">
+                <h5 class="card-header-text">Previsualización</h5>
+            </div>
+            <div class="card-body">
+                <iframe src="@objEvento.ruta" style="width: 100%;height: 600px;border: none;"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+    <script type="text/javascript">
+
+        var r,g,b
+
+        function getColor(ev) {
+            const color = ev.target.value
+            r = parseInt(color.substr(1, 2), 16)
+            g = parseInt(color.substr(3, 2), 16)
+            b = parseInt(color.substr(5, 2), 16)
+        }
+
+        function Actualizar($id) {
+
+            let idEvento = $('#idEvento').val();
+            let fontSize = $('#fontSize').val();
+            let posicionY = $('#posicionY').val();
+            if ($id != 0) {
+                $.ajax({
+                    url: "@Url.Action("Actualizar", "Eventos")",
+                    type: "POST",
+                    data: "{'idEvento':'" + idEvento + "'," +
+                            "'fontSize':'" + fontSize + "'," +
+                            "'posicionY':'" + posicionY + "'," +
+                            "'rgb':'" + [r,g,b] + "'}",
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+
+                        if (data.resultado) {
+                            location.reload();
+                        }
+                    }
+                });
+
+            } else {          }
+
+         }
+
+    </script>
+
+}
