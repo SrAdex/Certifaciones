@@ -88,3 +88,9 @@ D:\Proyectos\sistema_certificados\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
 D:\Proyectos\sistema_certificados\BL\obj\Debug\BL.csproj.CopyComplete
 D:\Proyectos\sistema_certificados\BL\obj\Debug\BL.dll
 D:\Proyectos\sistema_certificados\BL\obj\Debug\BL.pdb
+C:\ADEX\SistemaCertificado\BL\bin\Debug\PdfSharp.Charting.dll
+C:\ADEX\SistemaCertificado\BL\bin\Debug\PdfSharp.dll
+C:\ADEX\SistemaCertificado\BL\bin\Debug\PdfSharp.xml
+C:\ADEX\SistemaCertificado\BL\bin\Debug\PdfSharp.Charting.xml
+C:\ADEX\SistemaCertificado\BL\bin\Debug\de\PdfSharp.resources.dll
+C:\ADEX\SistemaCertificado\BL\bin\Debug\de\PdfSharp.Charting.resources.dll

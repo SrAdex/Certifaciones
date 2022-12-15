@@ -65,7 +65,7 @@
                                     <button class='btn btn-danger btn-sm' type='button' onclick="Eliminar(@evento.IdEvento)">
                                         <i class="fa fa-trash" aria-hidden="true"></i>
                                     </button>
-                                    <a target="_blank" href="@Url.Action("Plantilla", "Eventos")">
+                                    <a target="_blank" href="@(Url.Action("Plantilla", "Eventos")+ $"?id={@evento.IdEvento}")">
                                         <button class='btn btn-info btn-sm' type="button">
                                             <i class="fa fa-file" aria-hidden="true"></i>
                                         </button>
@@ -90,7 +90,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                @using (Html.BeginForm("Create", "Eventos", FormMethod.Post))
+                @using (Html.BeginForm("Create", "Eventos", FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {
                     <div class="modal-body">
                         <div class="form-group">
@@ -102,7 +102,7 @@
                             <input name="DesEvent" type="text" class="form-control" required />
                         </div>
                         <div class="custom-file">
-                            <input type="file" id="plantillaExcel" name="plantillaExcel" class="custom-file-input" />
+                            <input type="file" id="plantillaExcel" name="plantillaCertificado" class="custom-file-input" accept="image/jpeg" />
                             <label id="lblArchivo" class="custom-file-label" for="fuSubirExcel">File</label>
                         </div>
                         <input type="hidden" name="UsrCreate" value="@usuario.NombreCompleto" />
@@ -187,6 +187,12 @@
             } else {
             }
 
-            }
+        }
+
+        $("#plantillaExcel").on('change', function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        })
+
     </script>
 }

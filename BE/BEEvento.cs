@@ -25,5 +25,8 @@ namespace BE
         public DateTime FUpdate { get; set; }
         public string UsrUpdate { get; set; }
         public string EstadoEven{ get; set; }
+        public string ruta { get; set; }
+        public int posicionY { get; set; }
+        public int tamanioLetra { get; set; }
     }
 }

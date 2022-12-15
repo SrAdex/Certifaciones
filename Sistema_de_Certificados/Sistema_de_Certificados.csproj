@@ -2307,8 +2307,6 @@
     <Content Include="Template_Login\scss\bootstrap\_variables.scss" />
     <Content Include="Template_Login\scss\style.scss" />
     <Content Include="Views\Eventos\Index.cshtml" />
-    <Content Include="Views\Eventos\CRUD.cshtml" />
-    <Content Include="Views\Eventos\Index2.cshtml" />
     <Content Include="Views\Eventos\Plantilla.cshtml" />
   </ItemGroup>
   <ItemGroup>

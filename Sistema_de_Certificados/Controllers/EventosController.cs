@@ -1,5 +1,6 @@
 ﻿using BE;
 using BL;
+using Microsoft.Ajax.Utilities;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 using System;
@@ -37,25 +38,13 @@ namespace Sistema_de_Certificados.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Index(HttpPostedFileBase plantillaExcel, int tipo)
-        {
-            string mensaje = "";
-            //mensaje = _BLCertificado.RegistroMasivo(plantillaExcel, tipo);
-            TempData["mensaje"] = mensaje;
-            return RedirectToAction("Index");
-        }
 
-        public ActionResult Index2()
+        public ActionResult Plantilla(int id)
         {
-            var EventoList = _BLEvento.GetListaEventos().ToList();
-            ViewBag.EventoList = EventoList;
+            var ObjEvento = _BLEvento.GetListaEventosxID(id);
 
-            return View();
-        }
+            ViewBag.eventoObj = ObjEvento;
 
-        public ActionResult Plantilla()
-        {
             return View();
         }
 
@@ -75,7 +64,7 @@ namespace Sistema_de_Certificados.Controllers
 
         // POST: Eventos/Create
         [HttpPost]
-        public ActionResult Create(string NomEvent, string DesEvent, string UsrCreate, string UsrUpdate, HttpPostedFileBase plantillaExcel)
+        public ActionResult Create(string NomEvent, string DesEvent, string UsrCreate, string UsrUpdate, HttpPostedFileBase plantillaCertificado)
         {
             string mensaje = "";
             try
@@ -83,7 +72,7 @@ namespace Sistema_de_Certificados.Controllers
 
                 if (ModelState.IsValid)
                 {
-                    mensaje = _BLEvento.RegistrarEvento(NomEvent, DesEvent, UsrCreate, UsrUpdate);
+                    mensaje = _BLEvento.RegistrarEvento(NomEvent, DesEvent, UsrCreate, UsrUpdate, plantillaCertificado);
                 }
 
                 TempData["message"] = mensaje;
@@ -129,6 +118,19 @@ namespace Sistema_de_Certificados.Controllers
                 rpta = false;
 
             return Json(new { resultado = rpta }, JsonRequestBehavior.AllowGet);
+        }
+
+    
+        [HttpPost]
+        public JsonResult Actualizar(int idEvento, int posicionY, int fontSize, string rgb)
+        {
+            bool rpta = true;
+            string mensaje = "";
+            mensaje = _BLEvento.ActualizarEvento(idEvento, posicionY, fontSize, rgb);
+            if (!mensaje.Contains("actualizado"))
+                rpta = false;
+
+            return Json(new {resultado = rpta});
         }
 
     }
